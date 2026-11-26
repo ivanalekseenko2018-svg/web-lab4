@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР №4 - Інтерактивний тест з JS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="student-info">
+            <span>Група: ТР-51</span>
+            <span>Олексієнко Іван Станіславович</span>
+        </div>
+        <h1>DOM: МАНІПУЛЯЦІЇ З ЕЛЕМЕНТАМИ ТА АТРИБУТАМИ</h1>
+    </header>
+
+    <main class="container">
+        <section id="start-section" class="card">
+            <h2>Вхід до тестування</h2>
+            <form id="start-form" novalidate>
+                <div class="form-group">
+                    <label for="user-name">Ім'я та прізвище:</label>
+                    <input type="text" id="user-name" name="userName" required minlength="2" placeholder="Наприклад: Іван Олексієнко">
+                    <span class="error-msg" id="name-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="user-group">Група:</label>
+                    <input type="text" id="user-group" name="userGroup" required pattern="^[А-Яа-яІіЇїЄєA-Za-z]{2}-\d{2}$" placeholder="Наприклад: ТР-51">
+                    <span class="error-msg" id="group-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="difficulty">Рівень складності:</label>
+                    <select id="difficulty" name="difficulty" required>
+                        <option value="easy">Початковий</option>
+                        <option value="medium">Середній</option>
+                        <option value="hard">Складний</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Почати тест</button>
+            </form>
+
+            <!-- Блок для попередніх результатів із localStorage -->
+            <div id="history-container" class="history-box hidden">
+                <h3>Останні результати</h3>
+                <ul id="history-list"></ul>
+                <button type="button" id="clear-history-btn" class="btn btn-secondary">Очистити історію</button>
+            </div>
+        </section>
+
+        <!-- тест -->
+        <section id="quiz-section" class="card hidden">
+            <div class="quiz-header">
+                <span id="quiz-progress">Питання 1 з 10</span>
+                <span id="quiz-score-live">Бали: 0</span>
+            </div>
+
+            <div id="question-container"></div>
+
+            <div class="quiz-actions">
+                <button type="button" id="next-btn" class="btn btn-primary">Відповісти / Далі</button>
+            </div>
+        </section>
+
+        <!-- 3. Екран результатів -->
+        <section id="result-section" class="card hidden">
+            <h2>Результати тесту</h2>
+            <div id="result-summary"></div>
+            <div id="result-details"></div>
+            <button type="button" id="restart-btn" class="btn btn-primary">Пройти ще раз</button>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Лабораторна робота №4 - Робота з JavaScript (Варіант 8)</p>
+    </footer>
+
+    <script src="js/classes.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
